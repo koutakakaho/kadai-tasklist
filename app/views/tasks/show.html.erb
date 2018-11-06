@@ -3,4 +3,6 @@
 
 <p><%= @task.content %></p>
 
-<%= link_to new_task_path %>
+<%= link_to "編集", edit_task_path %>
+<%= link_to "削除", task_path, method: :delete %>
+<%= link_to "トップページ" , tasks_path %>
