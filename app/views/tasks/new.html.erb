@@ -1,6 +1,3 @@
-<%= form_for(@task) do |f| %>
-    <%= f.text_field :content %>
-    <%= f.submit %>
-<% end %>
-
+<h1>新規作成画面</h1>
+<%= render "form", task: @task %>
 <%= link_to "トップページに戻る", tasks_path %>
