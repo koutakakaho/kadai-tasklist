@@ -15,6 +15,8 @@ class SessionsController < ApplicationController
     end
     
     def destory
+        session[:user_id]=nil
+        redirect_to login_url
     end
     
     
