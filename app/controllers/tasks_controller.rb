@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  
+  before_action :correct_user, only: [:create, :destroy]
   def index
     @tasks = Task.all
   end
@@ -25,7 +25,6 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
-    @user = User.find(params[:user_id])
   end
 
   def update
@@ -47,6 +46,14 @@ class TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit(:content, :status,:user_id)
+  end
+  
+  def correct_user
+    @task=current_user.tasks.find_by(id: params[:id])
+    unless @task
+    flash[:danger]="投稿者でないと操作できません"
+      redirect_to tasks_url
+    end
   end
   
 end

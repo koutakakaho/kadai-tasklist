@@ -1,9 +1,9 @@
 <div class="text-center">
-    <h1><%= @user.name %>のマイページ</h1>
+    <h1><%= current_user.name %>のマイページ</h1>
 
-    <% @user.tasks.each do |task| %>
-        <%= task.content %><br>
+    <% current_user.tasks.each do |task| %>
+        <p><a href="tasks/<%= task.id %>/edit"><%= task.content %></a></p><br>
     <% end %>
 </div>
 
-<%= link_to "新規タスク作成", new_user_task_path(@user) %>
+<%= link_to "新規タスク作成", new_user_task_path(current_user) %>
