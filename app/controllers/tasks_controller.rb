@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :correct_user, only: [:create, :destroy]
+  before_action :correct_user, only: [:edit, :destroy]
   def index
     @tasks = Task.all
   end
