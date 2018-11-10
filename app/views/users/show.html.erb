@@ -1,0 +1,7 @@
+<div class="text-center">
+    <h1><%= @user.name %>のマイページ</h1>
+
+    <%= @user.tasks.each do |task| %>
+        <%= task.content %><br>
+    <% end %>
+</div>

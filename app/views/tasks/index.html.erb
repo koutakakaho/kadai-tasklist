@@ -1,7 +1,7 @@
 <h1>タスク一覧</h1>
 <% @tasks.each do |task| %>
-    task:<a href="tasks/<%= task.id %>"><%= task.content %></a>, status: <%= task.status %><br>
-    <%= link_to "削除", task ,method: :delete, data: { confirm: "本当に削除しますか？" }  %><br>
+    task:<a href="users/<%= task.user.id %>/tasks/<%= task.id %>"><%= task.content %></a>, status: <%= task.status %>
+    <%= link_to "削除", user_task_path(task.user, task) , method: :delete %><br>
 <% end %>
 
-<%= link_to "新規作成",new_task_path %>
+

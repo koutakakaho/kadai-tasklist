@@ -1,16 +1,19 @@
 class TasksController < ApplicationController
+  
   def index
     @tasks = Task.all
   end
 
   def new
     @task = Task.new
+    @user = User.find(params[:user_id])
   end
 
   def create
+    @user = User.find(params[:user_id])
     @task = Task.new(task_params)
     if @task.save
-      redirect_to tasks_path
+      redirect_to user_url(@user)
     else
       render :new
     end
@@ -22,6 +25,7 @@ class TasksController < ApplicationController
 
   def edit
     @task = Task.find(params[:id])
+    @user = User.find(params[:user_id])
   end
 
   def update
@@ -42,6 +46,7 @@ class TasksController < ApplicationController
   
   private
   def task_params
-    params.require(:task).permit(:content, :status)
+    params.require(:task).permit(:content, :status,:user_id)
   end
+  
 end
