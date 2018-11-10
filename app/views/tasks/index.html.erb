@@ -1,7 +1,11 @@
 <h1>タスク一覧</h1>
 <% @tasks.each do |task| %>
-    task:<a href="users/<%= task.user.id %>/tasks/<%= task.id %>"><%= task.content %></a>, status: <%= task.status %>
+  <% if task.user == current_user %>
+    タスク:<a href="users/<%= task.user.id %>/tasks/<%= task.id %>"><%= task.content %></a>, status: <%= task.status %>
     <%= link_to "削除", user_task_path(task.user, task) , method: :delete %><br>
+    作成者：<%= task.user.name %><br>
+  <% end %>
 <% end %>
+
 
 

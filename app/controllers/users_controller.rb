@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  
   def index
     @users = User.all.page(params[:page])
   end
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      flash[:success]="サインインしました"
       redirect_to @user
     else
       render "new"
