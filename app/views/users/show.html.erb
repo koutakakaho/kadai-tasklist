@@ -1,8 +1,8 @@
 <div class="text-center">
-    <h1><%= @user.name %>のマイページ</h1>
+    <h1><%= current_user.name %>のマイページ</h1>
 
     <% current_user.tasks.each do |task| %>
-        <p><a href="users/<%= current_user.id %>/tasks/<%= task.id %>/edit"><%= task.content %></a></p><br>
+        <p><a href="<%= current_user.id %>/tasks/<%= task.id %>/edit"><%= task.content %></a></p><br>
     <% end %>
 </div>
 
