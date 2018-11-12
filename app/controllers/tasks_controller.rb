@@ -6,14 +6,12 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
-    @user = User.find(params[:user_id])
   end
 
   def create
-    @user = User.find(params[:user_id])
     @task = Task.new(task_params)
     if @task.save
-      redirect_to user_url(@user)
+      redirect_to user_tasks_url
     else
       render :new
     end
