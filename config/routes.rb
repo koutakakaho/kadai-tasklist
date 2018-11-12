@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   post "login" => "sessions#create"
   delete "logout"=> "sessions#destory"
   
-  resources :users, only: [:new, :create, :index, :show] do
-    resources :tasks
-  end
+  resources :users, only: [:new, :create, :index, :show] 
+  resources :tasks
   
   get "tasks" => "tasks#index"
   root to: "users#new"
