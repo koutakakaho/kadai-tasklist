@@ -2,7 +2,8 @@
     <h1><%= current_user.name %>のマイページ</h1>
 
     <% current_user.tasks.each do |task| %>
-        <p><a href="/tasks/<%= task.id %>/edit"><%= task.content %></a></p><br>
+        タスク：<a href="/tasks/<%= task.id %>/edit"><%= task.content %></a>
+        タスクの状態：<%= task.status %><br>
     <% end %>
 </div>
 
