@@ -5,7 +5,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    user = User.find(params[:id])
+    unless user==current_user
+      redirect_to root_url
+    end
   end
 
   def new
