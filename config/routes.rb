@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :tasks
   
   get "tasks" => "tasks#index"
-  root to: "users#new"
+  root to: "tasks#index"
 end
