@@ -2,8 +2,10 @@
     <h1><%= current_user.name %>のマイページ</h1>
 
     <% current_user.tasks.each do |task| %>
-        タスク：<%= link_to " #{task.content}" , edit_task_path %>
-        タスクの状態：<%= task.status %><br>
+        <%= link_to edit_task_path do %>
+            タスク：<%= task.content %>
+            タスクの状態：<%= task.status %><br>
+        <% end %>
     <% end %>
 </div>
 

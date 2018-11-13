@@ -39,7 +39,7 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
-    
+
     redirect_to tasks_url
   end
   
@@ -52,7 +52,7 @@ class TasksController < ApplicationController
     @task=current_user.tasks.find_by(id: params[:id])
     unless @task
     flash[:danger]="投稿者でないと操作できません"
-      redirect_to tasks_url
+      redirect_to root_url
     end
   end
   
