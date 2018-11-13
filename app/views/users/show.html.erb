@@ -4,8 +4,8 @@
     <% current_user.tasks.each do |task| %>
         <%= link_to edit_task_path do %>
             タスク：<%= task.content %>
-            タスクの状態：<%= task.status %><br>
         <% end %>
+            タスクの状態：<%= task.status %><br> 
     <% end %>
 </div>
 
