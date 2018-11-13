@@ -19,7 +19,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success]="サインインしました"
-      redirect_to @user
+      redirect_to tasks_url
     else
       render "new"
     end

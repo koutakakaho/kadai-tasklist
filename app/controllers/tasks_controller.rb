@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = current_user.tasks.build(task_params)
     if @task.save
-      redirect_to user_url(current_user)
+      redirect_to tasks_url
     else
       render :new
     end
